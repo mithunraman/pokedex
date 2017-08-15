@@ -67,6 +67,10 @@ class PokemonList extends Component {
                                 </ModalDialog> :
                                 <ModalDialog onClose={this.handleClose}>
                                     <PokemonDetail pokemon={this.pokemonSelected}/>
+                                    <button type="button"
+                                            className="btn btn-danger float-right"
+                                            onClick={this.handleClose}>Close
+                                    </button>
                                 </ModalDialog>
                             }
                         </ModalContainer>
@@ -79,7 +83,7 @@ class PokemonList extends Component {
                     <div className="row justify-content-md-center" style={{marginTop: '10px'}}>
                         <div className="col-md-auto">
                             <Paginate currentPage={this.props.current_index}
-                                      pageCount={this.props.count / 9}
+                                      pageCount={(this.props.count / 9) + 1}
                                       onPaginate={this.onPaginate.bind(this)}/>
                         </div>
                     </div>

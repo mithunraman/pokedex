@@ -15,6 +15,12 @@ class Home extends Component {
         * */
         return (
             <div>
+                <div className="container-fluid">
+                    <div className="row justify-content-md-center">
+                        <img
+                            src="https://cdn.bulbagarden.net/upload/thumb/4/4b/Pok%C3%A9dex_logo.png/250px-Pok%C3%A9dex_logo.png"
+                            alt=""/></div>
+                </div>
                 <SearchBar/>
                 <PokemonList/>
             </div>

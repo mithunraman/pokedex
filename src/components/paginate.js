@@ -13,9 +13,6 @@ class Paginate extends Component {
     }
 
     getLiElements(currentPage, totalPages) {
-        this.currentPage = _.round(currentPage);
-        this.totalPages = _.round(totalPages);
-
         let items = [];
 
         items.push(
@@ -49,13 +46,13 @@ class Paginate extends Component {
 
     onInputChange(event) {
         this.setState({
-            paginate: event.target.value
+            paginate: Number(event.target.value)
         });
     }
 
     paginateTo(event) {
         event.preventDefault();
-        if (this.state.paginate > 0 && this.state.paginate < this.totalPages) {
+        if (this.state.paginate > 0 && this.state.paginate <= this.totalPages) {
             this.props.onPaginate(this.state.paginate);
             this.currentPage = this.state.paginate;
         }
@@ -95,7 +92,9 @@ class Paginate extends Component {
     render() {
         const currentPage = _.isNumber(this.props.currentPage) ? this.props.currentPage : 1;
         const pageCount = _.isNumber(this.props.pageCount) ? this.props.pageCount : 10;
-        const text = `showing ${this.props.currentPage} of ${this.totalPages}`;
+        this.currentPage = _.round(currentPage);
+        this.totalPages = _.round(pageCount);
+        const text = `showing ${this.currentPage} of ${this.totalPages}`;
         return (
             <div>
                 <ul className="pagination">
