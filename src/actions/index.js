@@ -5,7 +5,7 @@ export const PAGINATE = 'PAGINATE';
 export const FILTER_POKEMONS = 'FILTER_POKEMONS';
 export const FETCH_POKEMON_DETAILS = 'FETCH_POKEMON_DETAILS';
 
-const ROOT_URL = 'http://pokeapi.co/api/v2';
+const ROOT_URL = 'https://pokeapi.co/api/v2';
 const DOC_URL = 'http://assets.pokemon.com/assets/cms2/img/pokedex/detail';
 const DOC_URL2 = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
 
