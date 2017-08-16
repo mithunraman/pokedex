@@ -22,7 +22,6 @@ class PokemonDetail extends Component {
         if (_.isEmpty(this.props.pokemonDetailsMap[this.id]))
             return <div>Loading...</div>
         const details = this.props.pokemonDetailsMap[this.id];
-        const dp = DpUtil(this.id).url;
 
         let types = '';
         this.props.pokemonDetailsMap[this.id].types.forEach(function (type) {

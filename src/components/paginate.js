@@ -12,7 +12,7 @@ class Paginate extends Component {
         }
     }
 
-    getLiElements(currentPage, totalPages) {
+    getLiElements() {
         let items = [];
 
         items.push(
@@ -27,6 +27,7 @@ class Paginate extends Component {
             <li className="page-item" key="2">
                 <form onSubmit={this.paginateTo.bind(this)}>
                     <input type="number"
+                           style={{width: '50px'}}
                            value={this.state.paginate}
                            onChange={this.onInputChange.bind(this)}
                            className="form-control"/>
@@ -98,7 +99,7 @@ class Paginate extends Component {
         return (
             <div>
                 <ul className="pagination">
-                    {this.getLiElements(currentPage, pageCount)}
+                    {this.getLiElements()}
                 </ul>
                 <p style={{textAlign: 'center'}}>{text}</p>
             </div>

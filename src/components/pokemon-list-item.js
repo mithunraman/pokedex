@@ -13,9 +13,8 @@ class PokemonListItem extends Component {
     }
 
     componentWillMount() {
-        if (_.isEmpty(this.props.pokemonDetailsMap[this.id])) {
-            this.props.fetchPokemonDetails(this.id);
-        }
+        // if (_.isEmpty(this.props.pokemonDetailsMap[this.id]))
+        //     this.props.fetchPokemonDetails(this.id);
     }
 
     componentWillUnmount() {
@@ -24,15 +23,6 @@ class PokemonListItem extends Component {
 
     render() {
         const dp = DpUtil(this.id).url;
-        let type;
-        if (!_.isEmpty(this.props.pokemonDetailsMap[this.id]))
-            type = (this.props.pokemonDetailsMap[this.id]).types.map(function (type) {
-                return <div className={`pokemon-type-chip background-color-${type.type.name}`}
-                            key={type.type.name}>{type.type.name}
-                </div>
-            });
-        else
-            type = <p>Loading...</p>;
         return (
             <div className="pokemon-container">
                 <div className="text-center">
@@ -41,7 +31,6 @@ class PokemonListItem extends Component {
                 <div className="pokemon-info">
                     <p className="id">#{FancyId(this.id)}</p>
                     <h5>{_.capitalize(this.props.pokemon.name)}</h5>
-                    <div>{type}</div>
                 </div>
             </div>
         );

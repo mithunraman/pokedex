@@ -3,8 +3,19 @@ body {
 }
 
 .search-bar {
-    margin: 20px;
+    margin-top: 20px;
     text-align: center;
+}
+
+.pokemon-type-container {
+    float: left;
+    padding-right: 8px;
+    height: 25px;
+}
+
+.pokemon-type-container :hover {
+    color: #d9d9d9;
+    cursor: pointer;
 }
 
 .pokemon-container {
@@ -16,7 +27,7 @@ body {
     border-radius: 10px;
     width: 100%;
     padding: 16px;
-    height: 200px;
+    height: 180px;
 }
 
 .pokecontainer :hover {

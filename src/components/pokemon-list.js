@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import PokemonListItem from './pokemon-list-item'
 import Paginate from './paginate';
 import PokemonDetail from './pokemon-detail';
-import {paginate} from "../actions/index"
-import ReactSpinner from 'react-spinjs';
+import {fetchPokemonDetails, paginate} from "../actions/index"
 
 
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
@@ -47,6 +46,8 @@ class PokemonList extends Component {
     isPokemonDetailsLoading() {
         const splitArr = this.pokemonSelected.url.split('/');
         const id = splitArr[splitArr.length - 2];
+        if (_.isEmpty(this.props.pokemonDetailsMap[this.id]))
+            this.props.fetchPokemonDetails(id);
         return _.isEmpty(this.props.pokemonDetailsMap[id]);
     }
 
@@ -102,4 +103,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, {paginate})(PokemonList)
+export default connect(mapStateToProps, {paginate, fetchPokemonDetails})(PokemonList)
